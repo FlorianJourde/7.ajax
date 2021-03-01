@@ -1,0 +1,6 @@
+.background {
+  background-color: rgba(100, 100, 100, 0.5);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
