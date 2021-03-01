@@ -4,6 +4,7 @@
   <div class="container">
     <!-- <div class="col"> -->
       <div class="page">
+      <?php include 'function.php' ?>
 
       </div>
     <!-- </div> -->
