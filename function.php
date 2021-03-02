@@ -8,14 +8,14 @@ if (is_dir($dir)) {
     while (($file = readdir($dh)) !== false) {
       $dotPos = strpos($file, $dot);
       if ($dotPos !== false && $dotPos > 0) {
-        echo "<span class='file '> $file</span>";
-      } else {
-        echo "<span class='folder '> $file</span>";
+        print_r("<span class='file '> $file</span>");
+      } 
+        print_r( "<span class='folder '> $file</span>");
       }
     }
     closedir($dh);
   }
-}
+
 
 ?>
 
