@@ -2,7 +2,7 @@
 
   <div class="container">
       <div class="page">
-        <?php include 'function.php' ?>
+        <!-- <?php include 'function.php' ?> -->
       </div>
   </div>
 

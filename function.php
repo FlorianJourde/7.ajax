@@ -1,21 +1,29 @@
 <?php
 
-$dir = "/var/www/html/7.ajax";
-$dot = ".";
+if (isset($_POST)&& !empty($_POST['folder'])){
 
-if (is_dir($dir)) {
-  if ($dh = opendir($dir)) {
-    while (($file = readdir($dh)) !== false) {
-      $dotPos = strpos($file, $dot);
-      if ($dotPos !== false && $dotPos > 0) {
-        print_r("<span class='file '> $file</span>");
-      } 
-        print_r( "<span class='folder '> $file</span>");
+$dir = $_POST['folder'];
+
+  // function getFiles($dir) {
+    if (is_dir($dir)) {
+      if ($dh = opendir($dir)) {
+        while (($file = readdir($dh)) !== false) {
+          $dot = ".";
+          $dotPos = strpos($file, $dot);
+          // $fileDir = realpath($file);
+          if ($dotPos !== false && $dotPos > 0) {
+            echo "<span class='file'><i class='fas fa-file'></i> $file</span><br/>";
+          } else {
+            echo "<span class='folder' id='$file' style='color: Mediumslateblue;'><i class='fas fa-folder'></i> $file</span><br/>";
+            // var_dump($fileDir);
+          }
+        }
+        closedir($dh);
       }
     }
-    closedir($dh);
-  }
+  // }
+  
+}
 
 
-?>
 
