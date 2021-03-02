@@ -1,14 +1,23 @@
 $(document).ready(function () {
-  $(".page").click(function () {
-    let directory = $(".page").val();
-    $.post(
-      "functions.php",
-      {
-        search: searchValue,
-      },
-      function (data) {
-        $("#directory").html(data);
-      }
-    );
-  });
+  $.post(
+    "function.php",
+    {
+      folder: "/",
+    },
+    function (data) {
+      $(".page").html(data);
+      $(".folder").click(function () {
+        let dirFolder = this.id;
+        $.post(
+          "function.php",
+          {
+            folder: "/" + dirFolder,
+          },
+          function (data) {
+            $(".page").html(data);
+          }
+        );
+      });
+    }
+  );
 });
