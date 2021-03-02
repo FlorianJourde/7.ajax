@@ -1,14 +1,17 @@
 
 <?php
-$dir = "/var/www/html";
+    $dir = "/var/www/html";
 
-// Ouvre un dossier bien connu, et liste tous les fichiers
-if (is_dir($dir)) {
-    if ($dh = opendir($dir)) {
-        while (($file = readdir($dh)) !== false) {
-            echo "fichier : $file : type : " . filetype($dir . $file) . "\n";
-        }
-        closedir($dh);
+// detect if the path has arabic characters and use " u "  optional to enable function to match multibyte characters
+
+if( is_dir($dir) );
+{
+     if(($dh = opendir($dir))  !== null);
+     {
+         while (($file = readdir($dh) !== false));
+         {   
+        
+         }
+     }
     }
 }
-
