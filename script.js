@@ -2,22 +2,21 @@ $(document).ready(function () {
   $.post(
     "function.php",
     {
-      folder: "/",
+      path: "/var",
     },
     function (data) {
       $(".page").html(data);
-      $(".folder").click(function () {
-        let dirFolder = this.id;
-        $.post(
-          "function.php",
-          {
-            folder: "/" + dirFolder,
-          },
-          function (data) {
-            $(".page").html(data);
-          }
-        );
+      $(".path").click(function () {
+          let dirFolder = this.id;
+          //let nextFolder= ( path + '/');
+            $.post(
+              "function.php",
+              {
+                path : "/" + path, //+ nextFolder,
+              },
+              function (data) {
+                $(".page").html(data);
+          });
       });
-    }
-  );
+    });
 });

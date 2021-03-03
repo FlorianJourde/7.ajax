@@ -1,29 +1,37 @@
 <?php
 
-if (isset($_POST)&& !empty($_POST['folder'])){
 
-$dir = $_POST['folder'];
+if (isset($_POST)&& !empty($_POST['path'])){
 
-  // function getFiles($dir) {
+$path = $_POST['path'];
+getFiles($path);
+
+function getFiles($dir) {
     if (is_dir($dir)) {
       if ($dh = opendir($dir)) {
         while (($file = readdir($dh)) !== false) {
           $dot = ".";
           $dotPos = strpos($file, $dot);
-          // $fileDir = realpath($file);
+          //$fileDir = realpath($file);
+          if(filetype($dir . $file) !== "dir"){
+            echo "<div>$file</div>";
+        }else{
+            echo "<div class='blue'>$file</div>";
+
+
+/*
           if ($dotPos !== false && $dotPos > 0) {
             echo "<span class='file'><i class='fas fa-file'></i> $file</span><br/>";
           } else {
-            echo "<span class='folder' id='$file' style='color: Mediumslateblue;'><i class='fas fa-folder'></i> $file</span><br/>";
-            // var_dump($fileDir);
-          }
-        }
+            echo "<span class='path' id='$file' style='color: Mediumslateblue;'><i class='fas fa-folder'></i> $file</span><br/>";
+             
+            //var_dump($fileDir);
+          };
+        };*/
         closedir($dh);
       }
     }
-  // }
-  
+  }
 }
-
-
-
+}
+}
