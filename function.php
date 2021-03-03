@@ -2,7 +2,7 @@
 
 if (isset($_POST)&& !empty($_POST['path'])){
 
-$dir = $_POST['path'];
+  $dir = $_POST['path'];
 
   // function getFiles($dir) {
     if (is_dir($dir)) {
