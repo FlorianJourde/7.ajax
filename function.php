@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_POST)&& !empty($_POST['folder'])){
+if (isset($_POST)&& !empty($_POST['path'])){
 
-$dir = $_POST['folder'];
+$dir = $_POST['path'];
 
   // function getFiles($dir) {
     if (is_dir($dir)) {
@@ -10,11 +10,10 @@ $dir = $_POST['folder'];
         while (($file = readdir($dh)) !== false) {
           $dot = ".";
           $dotPos = strpos($file, $dot);
-          // $fileDir = realpath($file);
           if ($dotPos !== false && $dotPos > 0) {
             echo "<span class='file'><i class='fas fa-file'></i> $file</span><br/>";
           } else {
-            echo "<span class='folder' id='$file' style='color: Mediumslateblue;'><i class='fas fa-folder'></i> $file</span><br/>";
+            echo "<span class='path' id='$file' style='color: Mediumslateblue;'><i class='fas fa-folder'></i> $file</span><br/>";
             // var_dump($fileDir);
           }
         }

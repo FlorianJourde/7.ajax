@@ -2,16 +2,16 @@ $(document).ready(function () {
   $.post(
     "function.php",
     {
-      folder: "/",
+      path: "/",
     },
     function (data) {
       $(".page").html(data);
-      $(".folder").click(function () {
-        let dirFolder = this.id;
+      $(".path").click(function () {
+        let dirPath = this.id;
         $.post(
           "function.php",
           {
-            folder: "/" + dirFolder,
+            path: "/" + dirPath,
           },
           function (data) {
             $(".page").html(data);
