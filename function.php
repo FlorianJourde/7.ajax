@@ -12,9 +12,9 @@ function getFiles($dir) {
         $dot = ".";
         $dotPos = strpos($file, $dot);
         if ($dotPos !== false && $dotPos > 0) {
-          echo "<span class='file'><i class='fas fa-file'></i> $file</span>";
+          echo "<div class='file col-2'><i class='fas fa-file fa-2x'></i><br/> $file</div>";
         } else {
-          echo "<span class='path' id='$file' style='color: rgba(0, 0, 0, 0.5)'><i class='fas fa-folder'></i> $file</span>";
+          echo "<div class='path col-2' id='$file' style='color: rgba(0, 0, 0, 0.5)'><i class='fas fa-folder fa-2x'></i><br/> $file</div>";
         }
       }
       closedir($dh);

@@ -6,16 +6,29 @@ $(document).ready(function () {
         path: pathValue,
       },
       function (data) {
-        $("#currentPath").val(pathValue);
         $(".pageContent").html(data);
         $(".path").click(function () {
           let currentPathValue = $("#currentPath").val();
-          let newPathValue = currentPathValue + this.id + "/";
-          $("#currentPath").val(newPathValue);
-          getFiles(newPathValue);
+          if (currentPath !== "/") {
+            newPath = currentPathValue + "/" + this.id;
+          } else {
+            newPath = currentPathValue + this.id;
+          }
+          $("#currentPath").val(newPath);
+          getFiles(newPath + "/");
         });
       }
     );
   };
+
   getFiles("/");
+
+  $("#previous").click(function () {
+    let currentPathValue = $("#currentPath").val();
+    let pathToArray = currentPathValue.split("/");
+    pathToArray.pop();
+    let newPath = pathToArray.join("/");
+    $("#currentPath").val(newPath);
+    getFiles(newPath + "/");
+  });
 });

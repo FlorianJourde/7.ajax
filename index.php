@@ -2,8 +2,15 @@
 
   <div class="container">
     <div class="page">
-      <input type="text" id="currentPath">
-      <div class="pageContent">
+      <div class="row">
+        <div class="col col-10">
+          <input type="text" id="currentPath">
+        </div>
+        <div class="col col-2" id="currentPath">
+          <button type="button" id="previous"><i class="fas fa-arrow-left"></i></button>
+        </div>
+      </div>
+      <div class="pageContent row">
         <!-- <?php include 'function.php' ?> -->
       </div>
     </div>
